@@ -30,12 +30,10 @@ func convertString(arr []interface{}) string {
 
 func main() {
 	// 1.1
-	var oct _oct = 052
-	var hex _hex = 0x2A
 	arr := make([]interface{}, 0)
 	arr = append(arr, 42)
-	arr = append(arr, oct)
-	arr = append(arr, hex)
+	arr = append(arr, _oct(052))
+	arr = append(arr, _hex(0x2A))
 	arr = append(arr, 3.14)
 	arr = append(arr, 1+2i)
 	arr = append(arr, "Golang")
@@ -47,6 +45,12 @@ func main() {
 	}
 
 	//1.3
+	str := convertString(arr)
 	fmt.Println(convertString(arr))
 
+	//1.4
+	textUTF := []rune(str)
+	for _, v := range textUTF {
+		fmt.Printf("%c", v)
+	}
 }
