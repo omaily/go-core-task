@@ -1,29 +1,41 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
 	"reflect"
+	"strings"
 )
 
-func checkType(v interface{}) reflect.Type {
-	return reflect.TypeOf(v)
+type _oct int
+type _hex int
+
+func checkType(v interface{}) string {
+	return reflect.TypeOf(v).Name()
 }
 
 func convertString(arr []interface{}) string {
-	var buffer bytes.Buffer
+	var buffer strings.Builder
 	for _, v := range arr {
-		buffer.WriteString(fmt.Sprint(v, " "))
+		switch reflect.TypeOf(v).Name() {
+		case "_oct":
+			buffer.WriteString(fmt.Sprintf("O%o ", v))
+		case "_hex":
+			buffer.WriteString(fmt.Sprintf("%#x ", v))
+		default:
+			buffer.WriteString(fmt.Sprint(v, " "))
+		}
 	}
 	return buffer.String()
 }
 
 func main() {
 	// 1.1
+	var oct _oct = 052
+	var hex _hex = 0x2A
 	arr := make([]interface{}, 0)
 	arr = append(arr, 42)
-	arr = append(arr, 052)
-	arr = append(arr, 0x2A)
+	arr = append(arr, oct)
+	arr = append(arr, hex)
 	arr = append(arr, 3.14)
 	arr = append(arr, 1+2i)
 	arr = append(arr, "Golang")
