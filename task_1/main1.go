@@ -1,22 +1,40 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"reflect"
 )
 
-var numDec int = 42           // Десятичная система
-var numOct int = 052          // Восьмеричная система
-var numHex int = 0x2A         // Шестнадцатиричная система
-var varFlt float64 = 3.14     // Тип float64
-var letter string = "Golang"  // Тип string
-var complx complex64 = 1 + 2i // Тип complex64
-var isState bool = true       // Тип bool
-
-func CheckType(v interface{}) reflect.Type {
+func checkType(v interface{}) reflect.Type {
 	return reflect.TypeOf(v)
 }
 
+func convertString(arr []interface{}) string {
+	var buffer bytes.Buffer
+	for _, v := range arr {
+		buffer.WriteString(fmt.Sprint(v, " "))
+	}
+	return buffer.String()
+}
+
 func main() {
-	fmt.Println(CheckType(isState))
+	// 1.1
+	arr := make([]interface{}, 0)
+	arr = append(arr, 42)
+	arr = append(arr, 052)
+	arr = append(arr, 0x2A)
+	arr = append(arr, 3.14)
+	arr = append(arr, 1+2i)
+	arr = append(arr, "Golang")
+	arr = append(arr, true)
+
+	// 1.2
+	for _, v := range arr {
+		fmt.Println(checkType(v))
+	}
+
+	//1.3
+	fmt.Println(convertString(arr))
+
 }
