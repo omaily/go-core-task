@@ -24,11 +24,30 @@ func sliceExample(slice []int) []int {
 	return even
 }
 
-func addElements(slece []int, v int) []int {
-	slece2 := make([]int, len(slece), len(slece)+1)
-	copy(slece2, slece)
-	slece2 = append(slece2, v)
+func addElements(slice []int, v int) []int {
+	slice2 := make([]int, len(slice), len(slice)+1)
+	copy(slice2, slice)
+	slice2 = append(slice2, v)
+	return slice2
+}
+
+func copyElements(slice []int) []int {
+	slece2 := make([]int, len(slice))
+	copy(slece2, slice)
 	return slece2
+}
+
+func removeElement(slice []int, i int) []int {
+	if i >= len(slice) || i < 0 {
+		return slice
+	}
+
+	tempSlice := make([]int, i, len(slice))
+	for i := range i {
+		tempSlice[i] = slice[i]
+	}
+
+	return append(tempSlice, slice[i+1:]...)
 }
 
 func StartTask2() {
@@ -43,4 +62,16 @@ func StartTask2() {
 	// 2.3
 	addSlice := addElements(originalSlice, 12)
 	fmt.Println("task 2.3:", addSlice)
+
+	// 2.4
+	copySlice := copyElements(originalSlice)
+	originalSlice[1] = 21
+	fmt.Println("task 2.4: originalSlice", originalSlice)
+	fmt.Println("              copySlice", copySlice)
+
+	// 2.5
+	removeSlice := removeElement(originalSlice, 0)
+	fmt.Println("task 2.5: originalSlice", originalSlice)
+	fmt.Println("            removeSlice", removeSlice)
+
 }
