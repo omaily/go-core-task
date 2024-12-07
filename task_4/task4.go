@@ -1,7 +1,16 @@
 package task_4
 
-import "fmt"
+func StartTask4(slice1 []string, slice2 []string) []string {
+	m := make(map[string]struct{}, len(slice2))
+	res := make([]string, 0, len(slice1))
+	for _, v := range slice2 {
+		m[v] = struct{}{}
+	}
 
-func StartTask4() {
-	fmt.Println("start task 4")
+	for _, v := range slice1 {
+		if _, ok := m[v]; !ok {
+			res = append(res, v)
+		}
+	}
+	return res
 }
