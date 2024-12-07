@@ -1,4 +1,4 @@
-package main
+package task_1
 
 import (
 	"bytes"
@@ -12,11 +12,11 @@ import (
 type _oct int
 type _hex int
 
-func checkType(v interface{}) string {
+func CheckType(v interface{}) string {
 	return reflect.TypeOf(v).Name()
 }
 
-func convertString(arr []interface{}) string {
+func ConvertString(arr []interface{}) string {
 	var buffer strings.Builder
 	for _, v := range arr {
 		switch reflect.TypeOf(v).Name() {
@@ -28,10 +28,11 @@ func convertString(arr []interface{}) string {
 			buffer.WriteString(fmt.Sprint(v, " "))
 		}
 	}
-	return buffer.String()
+	res := buffer.String()
+	return strings.TrimSpace(res)
 }
 
-func saltLine(str []rune) []byte {
+func SaltLine(str []rune) []byte {
 	var buffer bytes.Buffer
 	for i, v := range str {
 		if i == len(str)/2 {
@@ -42,7 +43,7 @@ func saltLine(str []rune) []byte {
 	return buffer.Bytes()
 }
 
-func main() {
+func Main() {
 	// 1.1
 	arr := make([]interface{}, 0)
 	arr = append(arr, 42)
@@ -56,13 +57,13 @@ func main() {
 	// 1.2
 	fmt.Print("par.2: ")
 	for _, v := range arr {
-		fmt.Print(checkType(v), " ")
+		fmt.Print(CheckType(v), " ")
 	}
 	fmt.Println()
 
 	//1.3
 	fmt.Print("par.3: ")
-	str := convertString(arr)
+	str := ConvertString(arr)
 	fmt.Print(str)
 	fmt.Println()
 
@@ -76,7 +77,7 @@ func main() {
 
 	//1.5
 	fmt.Print("par.5: ")
-	textByte := saltLine(textUTF)
+	textByte := SaltLine(textUTF)
 
 	hasher := sha256.New()
 	hasher.Write(textByte)
