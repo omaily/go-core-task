@@ -13,31 +13,30 @@ func createSlise(n int) []int {
 	return slice
 }
 
-func sliceExample(slice []int) []int {
+func SliceExample(slice []int) []int {
 	even := make([]int, 0, len(slice))
 	for _, v := range slice {
 		if v%2 == 0 {
 			even = append(even, v)
 		}
 	}
-
 	return even
 }
 
-func addElements(slice []int, v int) []int {
+func AddElements(slice []int, v int) []int {
 	slice2 := make([]int, len(slice), len(slice)+1)
 	copy(slice2, slice)
 	slice2 = append(slice2, v)
 	return slice2
 }
 
-func copyElements(slice []int) []int {
-	slece2 := make([]int, len(slice))
-	copy(slece2, slice)
-	return slece2
+func CopyElements(slice []int) []int {
+	slice2 := make([]int, len(slice))
+	copy(slice2, slice)
+	return slice2
 }
 
-func removeElement(slice []int, i int) []int {
+func RemoveElement(slice []int, i int) []int {
 	if i >= len(slice) || i < 0 {
 		return slice
 	}
@@ -56,22 +55,21 @@ func StartTask2() {
 	fmt.Println("task 2.1:", originalSlice)
 
 	// 2.2
-	evenSlice := sliceExample(originalSlice)
+	evenSlice := SliceExample(originalSlice)
 	fmt.Println("task 2.2:", evenSlice)
 
 	// 2.3
-	addSlice := addElements(originalSlice, 12)
+	addSlice := AddElements(originalSlice, 12)
 	fmt.Println("task 2.3:", addSlice)
 
 	// 2.4
-	copySlice := copyElements(originalSlice)
+	copySlice := CopyElements(originalSlice)
 	originalSlice[1] = 21
 	fmt.Println("task 2.4: originalSlice", originalSlice)
 	fmt.Println("              copySlice", copySlice)
 
 	// 2.5
-	removeSlice := removeElement(originalSlice, 0)
+	removeSlice := RemoveElement(originalSlice, 0)
 	fmt.Println("task 2.5: originalSlice", originalSlice)
 	fmt.Println("            removeSlice", removeSlice)
-
 }
