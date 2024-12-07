@@ -6,16 +6,16 @@ import (
 )
 
 func createSlise(n int) []int {
-	sliсe := make([]int, n, 15)
-	for i := range sliсe {
-		sliсe[i] = rand.Intn(10)
+	slice := make([]int, n, 15)
+	for i := range slice {
+		slice[i] = rand.Intn(10)
 	}
-	return sliсe
+	return slice
 }
 
-func sliceExample(sliсe []int) []int {
-	even := make([]int, 0, len(sliсe))
-	for _, v := range sliсe {
+func sliceExample(slice []int) []int {
+	even := make([]int, 0, len(slice))
+	for _, v := range slice {
 		if v%2 == 0 {
 			even = append(even, v)
 		}
