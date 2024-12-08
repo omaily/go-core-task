@@ -3,13 +3,14 @@ package task_8
 import (
 	"fmt"
 	"sync"
+	"sync/atomic"
 )
 
-var counter = 0
+var counter int64 = 0
 var wg sync.WaitGroup
 
 func incrementCounter() {
-	counter++
+	atomic.AddInt64(&counter, 1)
 	wg.Done()
 }
 
