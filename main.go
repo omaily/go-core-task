@@ -1,7 +1,7 @@
 package main
 
-import task "coretask/task_6"
+import task "coretask/task_7"
 
 func main() {
-	task.StartTask6()
+	task.StartTask7()
 }
