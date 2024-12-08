@@ -12,7 +12,7 @@ func Intersect(slice1 []int, slice2 []int) (bool, []int) {
 		m[key]++
 	}
 
-	intersection := make([]int, 0, len(m))
+	intersection := make([]int, 0, len(slice2))
 	for _, key := range slice2 {
 		if m[key] > 0 {
 			flag = true
