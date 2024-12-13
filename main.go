@@ -1,10 +1,12 @@
 package main
 
 import (
+	"context"
 	task2 "coretask/task_2"
 	task3 "coretask/task_3"
 	task4 "coretask/task_4"
 	task5 "coretask/task_5"
+	task6 "coretask/task_6"
 	"fmt"
 )
 
@@ -19,4 +21,6 @@ func main() {
 	fmt.Println(res)
 
 	task5.StartTask5()
+
+	task6.StartTask6(context.Background())
 }
