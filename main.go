@@ -4,6 +4,7 @@ import (
 	task2 "coretask/task_2"
 	task3 "coretask/task_3"
 	task4 "coretask/task_4"
+	task5 "coretask/task_5"
 	"fmt"
 )
 
@@ -16,4 +17,6 @@ func main() {
 	slice2 := []string{"banana", "date", "fig"}
 	res := task4.StartTask4(slice1, slice2)
 	fmt.Println(res)
+
+	task5.StartTask5()
 }
