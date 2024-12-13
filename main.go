@@ -1,7 +1,10 @@
 package main
 
-import task "coretask/task_6"
+import (
+	"context"
+	task "coretask/task_6"
+)
 
 func main() {
-	task.StartTask6()
+	task.StartTask6(context.Background())
 }
