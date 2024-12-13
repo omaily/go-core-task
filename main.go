@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	task1 "coretask/task_1"
 	task2 "coretask/task_2"
 	task3 "coretask/task_3"
 	task4 "coretask/task_4"
@@ -14,6 +15,8 @@ import (
 )
 
 func main() {
+	task1.StartTask()
+
 	task2.StartTask2()
 
 	task3.StartTask3()
