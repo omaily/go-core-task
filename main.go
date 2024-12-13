@@ -7,6 +7,7 @@ import (
 	task4 "coretask/task_4"
 	task5 "coretask/task_5"
 	task6 "coretask/task_6"
+	task7 "coretask/task_7"
 	"fmt"
 )
 
@@ -23,4 +24,6 @@ func main() {
 	task5.StartTask5()
 
 	task6.StartTask6(context.Background())
+
+	task7.StartTask7()
 }
